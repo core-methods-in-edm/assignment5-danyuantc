@@ -16,7 +16,7 @@ library(party)
 
 ## Part I
 ```{r}
-D1 <- 
+D1 <-(intelligent_tutor)
 ```
 
 ##Classification Tree
@@ -66,7 +66,7 @@ Upload the data "intelligent_tutor_new.csv". This is a data set of a differnt sa
 ```{r}
 #Upload new data
 
-D2 <- 
+D2 <-(intelligent_tutor_new) 
 
 #Generate predicted advice for new students based on tree generated from old students
 
@@ -75,3 +75,14 @@ D2$prediction <- predict(score_ctree, D2)
 ``` 
 ## Part III
 Compare the predicted advice with the actual advice that these studnts recieved. What is the difference between the observed and predicted results?
+
+
+```{r}
+D1$advice1 <- ifelse(D1$advice == "intervene", 1, ifelse(D1$advice == "monitor", 2, 3))
+```
+
+```{r}
+sum(abs(D1$action - D1$advice1))
+```
+T he sum of the absolute value is 332. (Takes time to finish it, but finally done with this one.)
+
